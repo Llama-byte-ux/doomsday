@@ -1,2 +1,2 @@
 # doomsday
-A simple doomsday cult simulation game for JS practice. 
+A simple doomsday cult simulation game, in the style of Plague Inc.
