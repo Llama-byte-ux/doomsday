@@ -1,0 +1,25 @@
+Piety:
+Followers:
+Cash:
+
+Early Game - Build up cash in chosen region alongside followers which are generated through the "temple" upgrades. Level 1 temples result in slow spread but temples can be upgraded as time goes on and cost piety.
+Mid Game - Expand into new regions by building new temples and expanding the faith to new people. Have regions begin to resist the cult but give the player upgrades to counteract them. Potentially multi-path in the future for a peaceful or violent "win".
+Late Game - Player fully takes over regions and other regions that don't have temples or the smallest amount of followers begin to ban religion. Player can approach with holy wars or subterfuge.
+End Game - Player conquers the world.
+
+
+Current Setup:
+World Map
+Clicker
+Upgrades
+Regions Stats
+
+Gameplay loops - Plague Inc Sim Version :
+- Upgrade your cult attributes
+- Instead of cash build up piety,
+- Piety can be spent on upgrades or spreading the cult (potentially larger end game rituals).
+- Prophet is patient zero in this case and cult initally spreads in home region but can spread via player actions (such as some sort of attribute or maybe a temp bonus / prophet potentially moves around).
+- Manual facilites at the cost of piety and followers (cost depends on the hostility of the nation they are working inside)
+- Add a time ticker and a count for how many days have passed
+- Game name - Illumination - A cult world conquest sim
+- 
