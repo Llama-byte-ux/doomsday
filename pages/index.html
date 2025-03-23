@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Doomsday</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="topBox">
+            <div id="statBox">
+                <p id="followerCount">Followers:</p>
+                <p id="pietyCount">Piety:</p>
+                <p id="dayCount">Day: 0</p>
+                <div id="playDiv">
+                    <button id="playBtn">Play</button>
+                </div>
+            </div>
+            <div id="textDisplayDiv">
+                <ul id="textDisplay">Recent Events: </ul>
+            </div>
+        </div>
+        <div class="mainBox">
+            <div id="initalStartupBox", class="primaryBox">
+                <p>Select your starting location</p>
+            </div>
+            <div id="regionStatBox">
+                <div>
+                    <h1 id="currentNation">Lowdy</h1>
+                    <img src="/images/NAmericaMap.png" id="currentNationImgNA" class="nationImg">
+                    <img src="/images/SAmericaMap.png" id="currentNationImgSA" class="nationImg">
+                    <img src="/images/EuropeMap.png" id="currentNationImgEU" class="nationImg">
+                    <img src="/images/AfricaMap.png" id="currentNationImgAF" class="nationImg">
+                    <img src="/images/AsiaMap.png" id="currentNationImgAS" class="nationImg">
+                    <img src="/images/OceaniaMap.png" id="currentNationImgOC" class="nationImg">
+                </div>
+                <div id="regionStatBoxDataDiv">
+                    <p id="pops">Meowdy</p>
+                    <p id="totalFollowerNation">Powdy</p>
+
+                    <div id="cultBtnDiv">
+
+                    </div>
+                </div>
+
+                <div>
+                    <button id="btnBack">Back</button>
+                </div>
+            </div>
+            <div id="upgradeBox">
+                <div id="upgradeAttDiv">
+                    <div id="attributeDiv"></div>
+                </div>
+                <div id="upgradeOtherDiv">
+                    <div id="spreadVectorDiv">Spread Vector</div>
+                    <div id="cultOrigins">Origins</div>
+                    <div>Goals</div>
+                </div>
+            </div>
+
+            <div class="selectionBox">
+                <div id="worldMapImgDiv", class="primaryBox">
+                    <!--<img src="/images/world.png" id="worldMapImg">-->
+
+                    <div id="map"></div>
+                    <!--<button class="btnMap" id="btnMapNAmerica">North America</button>
+                    <button class="btnMap" id="btnMapSAmerica">South America</button>
+                    <button class="btnMap" id="btnMapEurope">Europe</button>
+                    <button class="btnMap" id="btnMapAfrica">Africa</button>
+                    <button class="btnMap" id="btnMapAsia">Asia</button>
+                    <button class="btnMap" id="btnMapOceania">Oceania</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="../scripts/scripts.js"></script>
+</body>
+</html>

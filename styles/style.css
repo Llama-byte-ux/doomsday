@@ -1,0 +1,330 @@
+button {
+    border: solid;
+    border-radius: 5px;
+    border-width: 5px;
+    color: #af4cda;
+    background-color: black;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+button:hover {
+    color: white;
+    border: dashed;
+    border-color: #af4cda;
+}
+
+body {
+    background-color: black;
+}
+
+.btnMap:hover {
+    color: black;
+    border: dashed;
+    background: #af4cda;
+}
+
+.country {
+    fill: #af4cda;   /* country colour */
+    stroke: black; /* country border colour */
+    stroke-width: 1; /* country border width */
+}
+
+.country-on{
+    fill: red;   /* highlight colour for selected country */
+  }
+
+.container {
+    width: 98.5vw;
+    height: 97vh;
+    display: grid;
+    grid-template-rows: 0.19fr 1fr;
+    margin-left: 5;
+    margin-right: ;
+}
+
+.descDiv {
+    font-size: 15px;
+}
+
+.divHorizontal {
+    text-align: center;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.mainBox {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.50fr;
+
+}
+
+.nationImg {
+    display: none;
+    width: auto;
+    height: auto;
+}
+
+.primaryBox {
+    width: 100%;
+    height: 100%;
+    border: solid;
+    border-radius: 5px;
+    border-color: #af4cda;
+    color: #af4cd;
+    background-color: black;
+    text-align: center;
+    align-content: center;
+}
+
+.upgradeButton {
+    border: solid;
+    border-width: 2px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    z-index: 0;
+}
+
+.toolTipDiv {
+    display: none;
+    color:  #af4cda;
+    border: solid;
+    z-index: 2;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+}
+
+.upgDiv {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 95%;
+    gap: 5px;
+    margin: auto;
+}
+
+.topBox {
+    display: grid;
+    grid-template-columns: 0.15fr 0.85fr;
+    width: 100%;
+    height: 100%;
+    border: solid;
+    border-radius: 5px;
+    border-color: #af4cda;
+    color: #af4cda;
+    background-color: black;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.selectionBox {
+    display: grid;
+    grid-template-rows: auto;
+    color: #af4cda;
+    height: 100%;
+    width: 100%;
+
+}
+
+/* ID CSS */
+
+#attributeDiv {
+    display: inline-grid;
+    grid-template-rows: auto;
+    border: solid;
+    color: green;
+    text-align: center;
+}
+
+#attributeDiv button{
+    width: auto;
+    height: auto;
+}
+
+#btnBack {
+
+}
+
+
+#btnMapNAmerica {
+    position: absolute;
+    top: 30%;
+    left: 8%;
+}
+
+#btnMapSAmerica {
+    position: absolute;
+    bottom: 35%;
+    left: 17%;
+}
+
+#btnMapEurope {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+}
+
+#btnMapAfrica {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+#btnMapAsia {
+    position: absolute;
+    top: 32%;
+    right: 25%;
+}
+
+#btnMapOceania {
+    position: absolute;
+    bottom: 30%;
+    right: 8%;
+}
+
+#clicker {
+    width: 150px;
+    height: 75px;
+    border: solid;
+    border-radius: 5px;
+    color: #af4cda;
+    background-color: black;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+#clicker:hover {
+    color: black;
+    border: solid;
+    border-color: #af4cda;
+    background-color: #af4cda;
+}
+
+#cultBtnDiv {
+    margin-top: 75px;
+    text-align: center;
+}
+
+#loudSpeakerBtn {
+    visibility: visible;
+}
+
+#initalStartupBox {
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#playDiv {
+    text-align: center;
+    margin: auto;
+}
+
+#regionStatBox {
+    display: none;
+    grid-template-rows: 0.30fr 0.70fr;
+    border: solid;
+    border-color: #af4cda;
+    color: #af4cda;
+    text-align: center;
+    font-family: monospace;
+}
+
+#regionStatBoxDataDiv {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: monospace;
+
+}
+
+#statBox {
+    margin-left: 15px;;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+#textDisplayDiv {
+    width: 100%;
+    height: 100%;
+    border: solid;
+    border-width: 0px 0px 0px 3px;
+    text-align: left;
+}
+
+#upgradeBox {
+    width: 100%;
+    height: 100%;
+    border: solid;
+    display: none;
+    grid-template-rows: 0.5fr 0.5fr;
+    border-radius: 5px;
+    border-color: #af4cda;
+    color: #af4cda;
+    background-color: black;
+}
+
+#upgradeAttDiv {
+    display: inline-grid;
+    grid-template-columns: auto;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+#upgradeAttDiv div{
+    width: auto;
+    height: auto;
+}
+
+#upgradeOtherDiv {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+#upgradeOtherDiv div{
+    border:solid;
+    color: #af4cda;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#worldMapImgDiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-level: 0;
+}
+
+#worldMapImgDiv button:hover{
+    border-color: black;
+}
+
+#worldMapImg {
+    width: 100%;
+    height: auto;
+}
+
+#zineUpgBtn {
+    visibility: visible;
+}
+
+
