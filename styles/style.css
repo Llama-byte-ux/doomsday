@@ -25,14 +25,15 @@ body {
 }
 
 .country {
-    fill: #af4cda;   /* country colour */
-    stroke: black; /* country border colour */
+    fill: black;   /* country colour */
+    stroke: #af4cda; /* country border colour */
     stroke-width: 1; /* country border width */
 }
 
 .country-on{
-    fill: red;   /* highlight colour for selected country */
-  }
+    fill: #af4cda;   /* highlight colour for selected country */
+    stroke: #af4cda;
+}
 
 .container {
     width: 98.5vw;
@@ -219,6 +220,7 @@ body {
 }
 
 #initalStartupBox {
+    color: #af4cda;
 }
 
 #map {
@@ -326,5 +328,4 @@ body {
 #zineUpgBtn {
     visibility: visible;
 }
-
 

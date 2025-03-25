@@ -1,9 +1,20 @@
 https://www.d3indepth.com/geographic/
-
-
+// Declaring some inital variables
+var pietyCurrent = 1;
+var currentIncome = 0;
+var clickCount = 0;
+var dayCount = 0;
+var playBtnBool = "false";
+var spreadRate = 10;
+var selectedNation = "NULL";
+nations = [];
 w = 1125;
 h = 900;
 
+ // Got this bit of code from https://stackoverflow.com/a/2901298
+ function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 var projection = d3
     .geoEquirectangular()
@@ -35,48 +46,34 @@ d3.json(
             .enter()
             .append("path")
             .attr("d", path)
-            .attr("id", function(d, i) {
-                console.log("country" + d.properties.iso_a3  + d.properties.pop_est)
+            .attr("id", function(d) {
+                let nation = {formalName: d.properties.formal_en, name: d.properties.geounit, id:"country" + d.properties.iso_a3,  population: d.properties.pop_est, followers:0, geometry: d.geometry.coordinates};
+                nations.push(nation);
                 return "country" + d.properties.iso_a3;
             })
             .attr("class", "country")
 
-            .on("click", function(d, i) {
+            .on("click", function(d) {
+                if(selectedNation != "NULL") {
                 d3.selectAll(".country").classed("country-on", false);
                 d3.select(this).classed("country-on", true);
+                mapNatView(this.id);
+                }
+                else {
+                    var x = this.id
+                    console.log(x);
+                    nationChoice(x);
+                }
             });
     }
 )
 
-
-
-// Declaring some inital variables
-var pietyCurrent = 1;
-var currentIncome = 0;
-var clickCount = 0;
-var dayCount = 0;
-var playBtnBool = "false";
-var spreadRate = 10;
-var selectedNation;
-
-// Selecting where you cult will start in the world map
-function nationSelectionSetup() {
-   var nationSelection = document.getElementById("initalStartupBox");
-
-   var btnMap = document.getElementsByClassName("btnMap");
-   for(var i = 0; i < btnMap.length; i++) {
-       btnMap[i].addEventListener("click", nationChoice);
-       console.log("I am here");
-   }
-
-}
-
 function nationChoice(x) {
-    var currentNation = x.target;
-    for (var i = 0; i < nationArray.length; i++) {
-        if(nationArray[i].id == currentNation.id) {
-           var currentNation = nationArray[i];
-           selectedNation = nationArray[i];
+    var currentNation = x;
+    for (var i = 0; i < nations.length; i++) {
+        if(nations[i].id == currentNation) {
+           var currentNation = nations[i];
+           selectedNation = nations[i];
            console.log(currentNation);
         }
     }
@@ -90,13 +87,39 @@ function nationChoice(x) {
     var upgradeBox = document.getElementById("upgradeBox").style.display = "grid";
 
     var btnMap = document.getElementsByClassName("btnMap");
-    for(var i = 0; i < btnMap.length; i++) {
-        btnMap[i].removeEventListener("click", nationChoice);
-        console.log("Removing those listeners boss");
-    }
     runGame();
 }
-nationSelectionSetup()
+
+
+function mapNatViewSetup(x) {
+    for (var i = 0; i < nations.length; i++) {
+        if(nations[i].id == x) {
+            var currentNation = nations[i];
+        }
+    }
+
+    var mapStat = document.getElementById("regionStatBox");
+
+    var currentNationName = document.getElementById("currentNation");
+    currentNationName.innerText = currentNation.formalName;
+
+    var currentNationImg = document.getElementsByClassName("nationImg");
+
+    var currentNationPops = document.getElementById("pops");
+    currentNationPops.innerText =  "Current Population: " + numberWithCommas(currentNation.population);
+
+    var currentNationFollowers = document.getElementById("totalFollowerNation");
+    currentNationFollowers.innerText =  "Followers: " + numberWithCommas(currentNation.followers);
+}
+
+function mapNatView(x) {
+    document.getElementById("upgradeBox").style.display = "none";
+    selectedNation = x;
+    var currentNation = x;
+    mapNatViewSetup(currentNation)
+    map = document.getElementById("regionStatBox");
+    map.style.display = "grid";
+}
 
 function runGame() {
 //Inital Setup for Cult Clicker
@@ -317,52 +340,12 @@ function runGame() {
         }
     }
 
-    function mapNatViewSetup(x) {
-        for (var i = 0; i < nationArray.length; i++) {
-            if(nationArray[i].id == x.id) {
-                var currentNation = nationArray[i];
-            }
-        }
-
-        var mapStat = document.getElementById("regionStatBox");
-
-        var currentNationName = document.getElementById("currentNation");
-        currentNationName.innerText = currentNation.name;
-
-        var currentNationImg = document.getElementsByClassName("nationImg");
-        for(var i = 0; i < currentNationImg.length; i++) {
-            currentNationImg[i].style.display = "none";
-            if(currentNationImg[i].id == currentNation.img){
-                currentNationImg[i].style.display = "inline";
-            }
-        }
-
-        var currentNationPops = document.getElementById("pops");
-        currentNationPops.innerText =  "Current Population: " + numberWithCommas(currentNation.pops);
-
-        var currentNationFollowers = document.getElementById("totalFollowerNation");
-        currentNationFollowers.innerText =  "Followers: " + numberWithCommas(currentNation.followers);
-    }
-
-    function mapNatView(x) {
-        document.getElementById("upgradeBox").style.display = "none";
-        selectedNation = x.target;
-        var currentNation = x.target;
-        mapNatViewSetup(currentNation)
-        map = document.getElementById("regionStatBox");
-        map.style.display = "grid";
-    }
-
     function backFunc() {
         document.getElementById("regionStatBox").style.display = "none";
         upg = document.getElementById("upgradeBox");
         upg.style.display = "grid";
     }
 
-    // Got this bit of code from https://stackoverflow.com/a/2901298
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
     //--- Spread Mechanics --//
 
 function spreadLocationCheck(x) {
@@ -390,17 +373,6 @@ function spreadRateCheck(x) {
 
 }
 
-nationArray = [
-
-    {id: "btnMapNAmerica", name: "North America", pops: 617280500, followers: 0, spread: "false", img: "currentNationImgNA", bordering: "SA" },
-    {id: "btnMapSAmerica", name: "South America", pops: 438104941, followers: 0, spread: "false", img: "currentNationImgSA", bordering: "NA" },
-    {id: "btnMapEurope", name: "Europe", pops: 744094971, followers: 0, spread: "false", img: "currentNationImgEU", bordering: "AS/AF" },
-    {id: "btnMapAfrica", name: "Africa", pops: 1549862036, followers: 0, spread: "false", img: "currentNationImgAF", bordering: "EU/AS" },
-    {id: "btnMapAsia", name: "Asia", pops: 4977954915, followers: 0, spread: "false", img: "currentNationImgAS", bordering: "EU/AF/OC" },
-    {id: "btnMapOceania", name: "Oceania", pops: 46609602, followers: 0, spread: "false", img: "currentNationImgOC", bordering: "AS"},
-
-]
-
 // Upgrade Items Array
 const upgObjects = [
     {revealed: "true",  id: "foundYourCultBtn", nameCostId: "foundYourCultNameCost", descId: "foundYourCultDesc", countId: "foundYourCultCount", name: "Found Your Cult", cost: 1, level: 0, amount: 0, pietyBump: 0.10, unlock: 0, desc: ""},
@@ -408,5 +380,4 @@ const upgObjects = [
     {revealed: "true",  id: "communalPrayerBtn", nameCostId: "communalPrayerNameCost", descId: "communalPrayerDesc", countId: "communalPrayerUpgCount",  name: "Communal Prayer", cost: 100, amount: 0, level: 1, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
     {revealed: "true",  id: "upgTier3", nameCostId: "upgTier3NameCost", descId: "upgTier3UpgDesc", countId: "upgCountUpgTier3",  name: "Upgrade Tier 3", cost: 100, amount: 0, level: 2, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
 ]
-
 
