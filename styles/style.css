@@ -142,7 +142,7 @@ body {
     display: inline-grid;
     grid-template-rows: auto;
     border: solid;
-    color: green;
+    color: purple;
     text-align: center;
 }
 

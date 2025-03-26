@@ -47,6 +47,10 @@ d3.json(
             .append("path")
             .attr("d", path)
             .attr("id", function(d) {
+
+
+                console.log(d.properties.formal_en)
+
                 let nation = {formalName: d.properties.formal_en, name: d.properties.geounit, id:"country" + d.properties.iso_a3,  population: d.properties.pop_est, followers:0, geometry: d.geometry.coordinates};
                 nations.push(nation);
                 return "country" + d.properties.iso_a3;
@@ -121,8 +125,60 @@ function mapNatView(x) {
     map.style.display = "grid";
 }
 
+
+
 function runGame() {
-//Inital Setup for Cult Clicker
+
+function geoParser(x) {
+    var nation = x
+    if(nation.geometry.length == 1) {
+        var type = "Polygon"; 
+        var coordinates = [nation.geometry[0]];
+        var geometry = turf.geometry(type, coordinates);
+        return geometry;
+    }
+    else if(nation.geometry.length > 1) {
+        var nationArr = [];
+        for (var k = 0; k < nation.geometry.length; k++) { 
+            var type = "MultiPolygon"; 
+            var coordinates = [nation.geometry[k]];
+            var geometry = turf.geometry(type, coordinates);
+            nationArr.push(geometry);
+        }
+        return nationArr
+    }
+}
+
+
+function borderCheck() {
+    for(var i = 0; i < nations.length; i++) {
+        nation = nations[i]
+        var nationGeo = geoParser(nation)
+        for(var k = 0; k < nations.length; k++) {
+            newNation = nations[k];
+            var nationGeoNew = geoParser(newNation)
+            if(Array.isArray(nationGeoNew)) {
+                for(var s = 0; s < nationGeoNew.length; s++) {
+                    var bordering = turf.booleanTouches(nationGeo, nationGeoNew[s])
+                    if(bordering) {
+                        console.log(nation.name + " is bordering " + newNation.name)
+                    }
+
+                }
+            }
+            else if(!Array.isArray(nationGeoNew)) {
+                    var bordering = turf.booleanTouches(nationGeo, nationGeoNew)
+                    if(bordering) {
+                        console.log(nation.name + " is bordering " + newNation.name)
+                    }
+
+            }
+        }
+    }
+}
+borderCheck()
+  
+//Inital Setup for Doomsday
     function initalSetup() {
         pietyTotal = document.getElementById("pietyCount");
         pietyTotal.innerText = "Piety: " + pietyCurrent.toFixed(2);
