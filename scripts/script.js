@@ -7,14 +7,69 @@ var dayCount = 0;
 var playBtnBool = "false";
 var spreadRate = 10;
 var selectedNation = "NULL";
+let borderNations = [];
 nations = [];
 w = 1125;
-h = 900;
+h = 800;
 
  // Got this bit of code from https://stackoverflow.com/a/2901298
  function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+const filePath = "../maps/custom.geo.json";
+
+async function getData() {
+    try {
+        const response = await fetch(filePath);
+
+        const json = await response.json();
+
+
+        if (json.type !== "FeatureCollection") {
+            throw new Error ("Invalid GeoJson format: Expected FeatureCollection")
+        };
+
+        const nations = json.features;
+        
+        
+        for(let i = 0; i < nations.length; i++) {
+            let allBorders;
+            let currentNation = nations[i]
+            for(let k = 0; k < nations.length; k++) {
+                let newNation = nations[k];
+                try {
+                    let bordering = turf.booleanIntersects(currentNation.geometry, newNation.geometry);
+
+                    if(bordering && currentNation.properties.name != newNation.properties.name) {
+                        //console.log(currentNation.properties.name + " is bordering " + newNation.properties.name)
+                        let borders = "country" + newNation.properties.iso_a3
+                        if(allBorders) {
+                            allBorders = allBorders + "/" + borders
+                        }
+                        if(!allBorders) {
+                            allBorders =  borders
+                        }
+                    }
+                }catch (error) {
+                    console.error("Error reading or parsing file:", error);
+                }
+            }
+            if(!allBorders) {
+                allBorders = "None"
+            }
+            nation = {id: "country" + currentNation.properties.iso_a3, borderingNations: allBorders}
+            borderNations.push(nation)
+        }
+        console.log(borderNations)
+
+        
+    } catch (error) {
+    console.error("Error reading or parsing file:", error);
+    }
+  }
+  
+  getData();
+
 
 var projection = d3
     .geoEquirectangular()
@@ -36,7 +91,7 @@ var svg = d3
     ;
 
 d3.json(
-    "../maps/custom.geo.json",
+    filePath,
     function(json) {
         countriesGroup = svg.append("g").attr("id", "map");
 
@@ -47,11 +102,7 @@ d3.json(
             .append("path")
             .attr("d", path)
             .attr("id", function(d) {
-
-
-                console.log(d.properties.formal_en)
-
-                let nation = {formalName: d.properties.formal_en, name: d.properties.geounit, id:"country" + d.properties.iso_a3,  population: d.properties.pop_est, followers:0, geometry: d.geometry.coordinates};
+                let nation = {formalName: d.properties.formal_en, name: d.properties.geounit, id:"country" + d.properties.iso_a3,  population: d.properties.pop_est, followers:0};
                 nations.push(nation);
                 return "country" + d.properties.iso_a3;
             })
@@ -65,7 +116,6 @@ d3.json(
                 }
                 else {
                     var x = this.id
-                    console.log(x);
                     nationChoice(x);
                 }
             });
@@ -78,7 +128,6 @@ function nationChoice(x) {
         if(nations[i].id == currentNation) {
            var currentNation = nations[i];
            selectedNation = nations[i];
-           console.log(currentNation);
         }
     }
     currentNation.followers = 1;
@@ -99,6 +148,10 @@ function mapNatViewSetup(x) {
     for (var i = 0; i < nations.length; i++) {
         if(nations[i].id == x) {
             var currentNation = nations[i];
+        }
+        if(borderNations[i].id == x) {
+            borderingNations = borderNations[i].borderingNations
+            console.log(borderingNations)
         }
     }
 
@@ -125,59 +178,7 @@ function mapNatView(x) {
     map.style.display = "grid";
 }
 
-
-
 function runGame() {
-
-function geoParser(x) {
-    var nation = x
-    if(nation.geometry.length == 1) {
-        var type = "Polygon"; 
-        var coordinates = [nation.geometry[0]];
-        var geometry = turf.geometry(type, coordinates);
-        return geometry;
-    }
-    else if(nation.geometry.length > 1) {
-        var nationArr = [];
-        for (var k = 0; k < nation.geometry.length; k++) { 
-            var type = "MultiPolygon"; 
-            var coordinates = [nation.geometry[k]];
-            var geometry = turf.geometry(type, coordinates);
-            nationArr.push(geometry);
-        }
-        return nationArr
-    }
-}
-
-
-function borderCheck() {
-    for(var i = 0; i < nations.length; i++) {
-        nation = nations[i]
-        var nationGeo = geoParser(nation)
-        for(var k = 0; k < nations.length; k++) {
-            newNation = nations[k];
-            var nationGeoNew = geoParser(newNation)
-            if(Array.isArray(nationGeoNew)) {
-                for(var s = 0; s < nationGeoNew.length; s++) {
-                    var bordering = turf.booleanTouches(nationGeo, nationGeoNew[s])
-                    if(bordering) {
-                        console.log(nation.name + " is bordering " + newNation.name)
-                    }
-
-                }
-            }
-            else if(!Array.isArray(nationGeoNew)) {
-                    var bordering = turf.booleanTouches(nationGeo, nationGeoNew)
-                    if(bordering) {
-                        console.log(nation.name + " is bordering " + newNation.name)
-                    }
-
-            }
-        }
-    }
-}
-borderCheck()
-  
 //Inital Setup for Doomsday
     function initalSetup() {
         pietyTotal = document.getElementById("pietyCount");
@@ -200,13 +201,6 @@ borderCheck()
     upgradeSetup();
     upgInfoUpdate();
 
-    //Function for when the clicker is clicked
-    function clickerClicked() {
-        pietyCurrent = pietyCurrent + 1;
-        clickCount = clickCount + 1;
-        pietyTotal.innerText = "Piety: " + pietyCurrent.toFixed(2);
-        upgInfoUpdate();
-    }
 
     //--- Start of the Upgrade Functions --//
     // Checks to see if the upgrade choice is valid
@@ -404,28 +398,26 @@ borderCheck()
 
     //--- Spread Mechanics --//
 
-function spreadLocationCheck(x) {
-    for (var i = 0; i < nationArray.length; i++){
-        if (nationArray[i].spread == "true") {
-          spreadRateCheck(nationArray[i])
+    function spreadLocationCheck(x) {
+        for (var i = 0; i < nations.length; i++){
+            if (nations[i].spread == "true") {
+            spreadRateCheck(nations[i])
+            }
+            if (nations[i].followers >= nations[i].population) {
+                nations[i].followers = nations[i].population;
+            }
+            mapNatViewSetup(selectedNation)
+
         }
-        if (nationArray[i].followers >= nationArray[i].pops) {
-            nationArray[i].followers = nationArray[i].pops;
+    }
+
+    function spreadRateCheck(x) {
+        var country = x;
+        var roll =  Math.floor(Math.random() * 10)
+        if(roll <= spreadRate) {
+            country.followers += Math.ceil(1 * (country.followers));
         }
-        mapNatViewSetup(selectedNation)
-
     }
-}
-
-function spreadRateCheck(x) {
-    var country = x;
-    var roll =  Math.floor(Math.random() * 10)
-    if(roll <= spreadRate) {
-        country.followers += Math.ceil(1 * (country.followers));
-    }
-}
-
-
 
 }
 
@@ -433,7 +425,7 @@ function spreadRateCheck(x) {
 const upgObjects = [
     {revealed: "true",  id: "foundYourCultBtn", nameCostId: "foundYourCultNameCost", descId: "foundYourCultDesc", countId: "foundYourCultCount", name: "Found Your Cult", cost: 1, level: 0, amount: 0, pietyBump: 0.10, unlock: 0, desc: ""},
     {revealed: "true",  id: "upgTier2", nameCostId: "upgTier2NameCost", descId: "upgTier2UpgDesc", countId: "upgCountUpgTier2",  name: "Upgrade Tier 2", cost: 100, amount: 0, level: 1, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
-    {revealed: "true",  id: "communalPrayerBtn", nameCostId: "communalPrayerNameCost", descId: "communalPrayerDesc", countId: "communalPrayerUpgCount",  name: "Communal Prayer", cost: 100, amount: 0, level: 1, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
-    {revealed: "true",  id: "upgTier3", nameCostId: "upgTier3NameCost", descId: "upgTier3UpgDesc", countId: "upgCountUpgTier3",  name: "Upgrade Tier 3", cost: 100, amount: 0, level: 2, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
+    {revealed: "false",  id: "communalPrayerBtn", nameCostId: "communalPrayerNameCost", descId: "communalPrayerDesc", countId: "communalPrayerUpgCount",  name: "Communal Prayer", cost: 100, amount: 0, level: 1, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
+    {revealed: "false",  id: "upgTier3", nameCostId: "upgTier3NameCost", descId: "upgTier3UpgDesc", countId: "upgCountUpgTier3",  name: "Upgrade Tier 3", cost: 100, amount: 0, level: 2, pietyBump: 0.20, unlock: 100, desc: "Everyone loves being yelled at while walking around in public!\n Lets make sure everyone hears about our saviour the Flying Spaghetti Monster!" },
 ]
 

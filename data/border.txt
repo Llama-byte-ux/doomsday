@@ -1,0 +1,702 @@
+[
+    {
+        "id": "countryCRI",
+        "borderingNations": "countryNIC/countryPAN"
+    },
+    {
+        "id": "countryNIC",
+        "borderingNations": "countryCRI/countryHND"
+    },
+    {
+        "id": "countryHTI",
+        "borderingNations": "countryDOM"
+    },
+    {
+        "id": "countryDOM",
+        "borderingNations": "countryHTI"
+    },
+    {
+        "id": "countrySLV",
+        "borderingNations": "countryGTM/countryHND"
+    },
+    {
+        "id": "countryGTM",
+        "borderingNations": "countrySLV/countryHND/countryMEX/countryBLZ"
+    },
+    {
+        "id": "countryCUB",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryHND",
+        "borderingNations": "countryNIC/countrySLV/countryGTM"
+    },
+    {
+        "id": "countryMEX",
+        "borderingNations": "countryGTM/countryBLZ/countryUSA"
+    },
+    {
+        "id": "countryBLZ",
+        "borderingNations": "countryGTM/countryMEX"
+    },
+    {
+        "id": "countryPAN",
+        "borderingNations": "countryCRI/countryCOL"
+    },
+    {
+        "id": "countryGRL",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryBHS",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryTTO",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryPRI",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryJAM",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryIDN",
+        "borderingNations": "countryMYS/countryTLS/countryPNG"
+    },
+    {
+        "id": "countryMYS",
+        "borderingNations": "countryIDN/countryTHA/countryBRN"
+    },
+    {
+        "id": "countryCYP",
+        "borderingNations": "countryCYN"
+    },
+    {
+        "id": "countryIND",
+        "borderingNations": "countryCHN/countryBTN/countryPAK/countryMMR/countryBGD/countryNPL"
+    },
+    {
+        "id": "countryCHN",
+        "borderingNations": "countryIND/countryPRK/countryBTN/countryKAZ/countryTJK/countryMNG/countryVNM/countryLAO/countryKGZ/countryPAK/countryMMR/countryAFG/countryNPL/countryRUS"
+    },
+    {
+        "id": "countryISR",
+        "borderingNations": "countryPSE/countryLBN/countrySYR/countryJOR/countryEGY"
+    },
+    {
+        "id": "countryPSE",
+        "borderingNations": "countryISR/countryJOR"
+    },
+    {
+        "id": "countryLBN",
+        "borderingNations": "countryISR/countrySYR"
+    },
+    {
+        "id": "countrySYR",
+        "borderingNations": "countryISR/countryLBN/countryTUR/countryIRQ/countryJOR"
+    },
+    {
+        "id": "countryKOR",
+        "borderingNations": "countryPRK"
+    },
+    {
+        "id": "countryPRK",
+        "borderingNations": "countryCHN/countryKOR/countryRUS"
+    },
+    {
+        "id": "countryBTN",
+        "borderingNations": "countryIND/countryCHN"
+    },
+    {
+        "id": "countryOMN",
+        "borderingNations": "countryARE/countrySAU/countryYEM"
+    },
+    {
+        "id": "countryUZB",
+        "borderingNations": "countryKAZ/countryTJK/countryKGZ/countryAFG/countryTKM"
+    },
+    {
+        "id": "countryKAZ",
+        "borderingNations": "countryCHN/countryUZB/countryKGZ/countryTKM/countryRUS"
+    },
+    {
+        "id": "countryTJK",
+        "borderingNations": "countryCHN/countryUZB/countryKGZ/countryAFG"
+    },
+    {
+        "id": "countryMNG",
+        "borderingNations": "countryCHN/countryRUS"
+    },
+    {
+        "id": "countryVNM",
+        "borderingNations": "countryCHN/countryKHM/countryLAO"
+    },
+    {
+        "id": "countryKHM",
+        "borderingNations": "countryVNM/countryLAO/countryTHA"
+    },
+    {
+        "id": "countryARE",
+        "borderingNations": "countryOMN/countrySAU"
+    },
+    {
+        "id": "countryGEO",
+        "borderingNations": "countryAZE/countryTUR/countryARM/countryRUS"
+    },
+    {
+        "id": "countryAZE",
+        "borderingNations": "countryGEO/countryTUR/countryARM/countryIRN/countryRUS"
+    },
+    {
+        "id": "countryTUR",
+        "borderingNations": "countrySYR/countryGEO/countryAZE/countryARM/countryIRQ/countryIRN/countryGRC/countryBGR"
+    },
+    {
+        "id": "countryLAO",
+        "borderingNations": "countryCHN/countryVNM/countryKHM/countryTHA/countryMMR"
+    },
+    {
+        "id": "countryKGZ",
+        "borderingNations": "countryCHN/countryUZB/countryKAZ/countryTJK"
+    },
+    {
+        "id": "countryARM",
+        "borderingNations": "countryGEO/countryAZE/countryTUR/countryIRN"
+    },
+    {
+        "id": "countryIRQ",
+        "borderingNations": "countrySYR/countryTUR/countryIRN/countrySAU/countryKWT/countryJOR"
+    },
+    {
+        "id": "countryIRN",
+        "borderingNations": "countryAZE/countryTUR/countryARM/countryIRQ/countryPAK/countryAFG/countryTKM"
+    },
+    {
+        "id": "countryQAT",
+        "borderingNations": "countrySAU"
+    },
+    {
+        "id": "countrySAU",
+        "borderingNations": "countryOMN/countryARE/countryIRQ/countryQAT/countryKWT/countryJOR/countryYEM"
+    },
+    {
+        "id": "countryPAK",
+        "borderingNations": "countryIND/countryCHN/countryIRN/countryAFG"
+    },
+    {
+        "id": "countryTHA",
+        "borderingNations": "countryMYS/countryKHM/countryLAO/countryMMR"
+    },
+    {
+        "id": "countryKWT",
+        "borderingNations": "countryIRQ/countrySAU"
+    },
+    {
+        "id": "countryTLS",
+        "borderingNations": "countryIDN"
+    },
+    {
+        "id": "countryBRN",
+        "borderingNations": "countryMYS"
+    },
+    {
+        "id": "countryMMR",
+        "borderingNations": "countryIND/countryCHN/countryLAO/countryTHA/countryBGD"
+    },
+    {
+        "id": "countryBGD",
+        "borderingNations": "countryIND/countryMMR"
+    },
+    {
+        "id": "countryAFG",
+        "borderingNations": "countryCHN/countryUZB/countryTJK/countryIRN/countryPAK/countryTKM"
+    },
+    {
+        "id": "countryTKM",
+        "borderingNations": "countryUZB/countryKAZ/countryIRN/countryAFG"
+    },
+    {
+        "id": "countryJOR",
+        "borderingNations": "countryISR/countryPSE/countrySYR/countryIRQ/countrySAU"
+    },
+    {
+        "id": "countryNPL",
+        "borderingNations": "countryIND/countryCHN"
+    },
+    {
+        "id": "countryYEM",
+        "borderingNations": "countryOMN/countrySAU"
+    },
+    {
+        "id": "countryCYN",
+        "borderingNations": "countryCYP"
+    },
+    {
+        "id": "countryPHL",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryLKA",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryTWN",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryJPN",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryCHL",
+        "borderingNations": "countryBOL/countryPER/countryARG"
+    },
+    {
+        "id": "countryBOL",
+        "borderingNations": "countryCHL/countryPER/countryARG/countryBRA/countryPRY"
+    },
+    {
+        "id": "countryPER",
+        "borderingNations": "countryCHL/countryBOL/countryBRA/countryECU/countryCOL"
+    },
+    {
+        "id": "countryARG",
+        "borderingNations": "countryCHL/countryBOL/countryBRA/countryURY/countryPRY"
+    },
+    {
+        "id": "countrySUR",
+        "borderingNations": "countryGUY/countryBRA/countryFRA"
+    },
+    {
+        "id": "countryGUY",
+        "borderingNations": "countrySUR/countryBRA/countryVEN"
+    },
+    {
+        "id": "countryBRA",
+        "borderingNations": "countryBOL/countryPER/countryARG/countrySUR/countryGUY/countryURY/countryCOL/countryPRY/countryVEN/countryFRA"
+    },
+    {
+        "id": "countryURY",
+        "borderingNations": "countryARG/countryBRA"
+    },
+    {
+        "id": "countryECU",
+        "borderingNations": "countryPER/countryCOL"
+    },
+    {
+        "id": "countryCOL",
+        "borderingNations": "countryPAN/countryPER/countryBRA/countryECU/countryVEN"
+    },
+    {
+        "id": "countryPRY",
+        "borderingNations": "countryBOL/countryARG/countryBRA"
+    },
+    {
+        "id": "countryVEN",
+        "borderingNations": "countryGUY/countryBRA/countryCOL"
+    },
+    {
+        "id": "countryFLK",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryETH",
+        "borderingNations": "countrySSD/countrySOM/countryKEN/countrySOML/countrySDN/countryDJI/countryERI"
+    },
+    {
+        "id": "countrySSD",
+        "borderingNations": "countryETH/countryKEN/countryCOD/countryCAF/countrySDN/countryUGA"
+    },
+    {
+        "id": "countrySOM",
+        "borderingNations": "countryETH/countryKEN/countrySOML"
+    },
+    {
+        "id": "countryKEN",
+        "borderingNations": "countryETH/countrySSD/countrySOM/countryTZA/countryUGA"
+    },
+    {
+        "id": "countryMWI",
+        "borderingNations": "countryTZA/countryZMB/countryMOZ"
+    },
+    {
+        "id": "countryTZA",
+        "borderingNations": "countryKEN/countryMWI/countryCOD/countryZMB/countryMOZ/countryBDI/countryRWA/countryUGA"
+    },
+    {
+        "id": "countrySOML",
+        "borderingNations": "countryETH/countrySOM/countryDJI"
+    },
+    {
+        "id": "countryMAR",
+        "borderingNations": "countryESH/countryDZA"
+    },
+    {
+        "id": "countryESH",
+        "borderingNations": "countryMAR/countryDZA/countryMRT"
+    },
+    {
+        "id": "countryCOG",
+        "borderingNations": "countryCOD/countryCAF/countryAGO/countryCMR/countryGAB"
+    },
+    {
+        "id": "countryCOD",
+        "borderingNations": "countrySSD/countryTZA/countryCOG/countryZMB/countryCAF/countryAGO/countryBDI/countryRWA/countryUGA"
+    },
+    {
+        "id": "countryNAM",
+        "borderingNations": "countryZAF/countryZMB/countryAGO/countryBWA"
+    },
+    {
+        "id": "countryZAF",
+        "borderingNations": "countryNAM/countryBWA/countryZWE/countryMOZ/countrySWZ/countryLSO"
+    },
+    {
+        "id": "countryLBY",
+        "borderingNations": "countryTUN/countrySDN/countryTCD/countryDZA/countryNER/countryEGY"
+    },
+    {
+        "id": "countryTUN",
+        "borderingNations": "countryLBY/countryDZA"
+    },
+    {
+        "id": "countryZMB",
+        "borderingNations": "countryMWI/countryTZA/countryCOD/countryNAM/countryAGO/countryBWA/countryZWE/countryMOZ"
+    },
+    {
+        "id": "countrySLE",
+        "borderingNations": "countryGIN/countryLBR"
+    },
+    {
+        "id": "countryGIN",
+        "borderingNations": "countrySLE/countryLBR/countryCIV/countryMLI/countrySEN/countryGNB"
+    },
+    {
+        "id": "countryLBR",
+        "borderingNations": "countrySLE/countryGIN/countryCIV"
+    },
+    {
+        "id": "countryCAF",
+        "borderingNations": "countrySSD/countryCOG/countryCOD/countrySDN/countryTCD/countryCMR"
+    },
+    {
+        "id": "countrySDN",
+        "borderingNations": "countryETH/countrySSD/countryLBY/countryCAF/countryERI/countryTCD/countryEGY"
+    },
+    {
+        "id": "countryDJI",
+        "borderingNations": "countryETH/countrySOML/countryERI"
+    },
+    {
+        "id": "countryERI",
+        "borderingNations": "countryETH/countrySDN/countryDJI"
+    },
+    {
+        "id": "countryCIV",
+        "borderingNations": "countryGIN/countryLBR/countryMLI/countryBFA/countryGHA"
+    },
+    {
+        "id": "countryMLI",
+        "borderingNations": "countryGIN/countryCIV/countrySEN/countryDZA/countryNER/countryBFA/countryMRT"
+    },
+    {
+        "id": "countrySEN",
+        "borderingNations": "countryGIN/countryMLI/countryGNB/countryMRT/countryGMB"
+    },
+    {
+        "id": "countryNGA",
+        "borderingNations": "countryBEN/countryCMR/countryNER"
+    },
+    {
+        "id": "countryBEN",
+        "borderingNations": "countryNGA/countryNER/countryBFA/countryTGO"
+    },
+    {
+        "id": "countryAGO",
+        "borderingNations": "countryCOG/countryCOD/countryNAM/countryZMB"
+    },
+    {
+        "id": "countryBWA",
+        "borderingNations": "countryNAM/countryZAF/countryZMB/countryZWE"
+    },
+    {
+        "id": "countryZWE",
+        "borderingNations": "countryZAF/countryZMB/countryBWA/countryMOZ"
+    },
+    {
+        "id": "countryTCD",
+        "borderingNations": "countryLBY/countryCAF/countrySDN/countryCMR/countryNER"
+    },
+    {
+        "id": "countryDZA",
+        "borderingNations": "countryMAR/countryESH/countryLBY/countryTUN/countryMLI/countryNER/countryMRT"
+    },
+    {
+        "id": "countryMOZ",
+        "borderingNations": "countryMWI/countryTZA/countryZAF/countryZMB/countryZWE/countrySWZ"
+    },
+    {
+        "id": "countrySWZ",
+        "borderingNations": "countryZAF/countryMOZ"
+    },
+    {
+        "id": "countryBDI",
+        "borderingNations": "countryTZA/countryCOD/countryRWA"
+    },
+    {
+        "id": "countryRWA",
+        "borderingNations": "countryTZA/countryCOD/countryBDI/countryUGA"
+    },
+    {
+        "id": "countryUGA",
+        "borderingNations": "countrySSD/countryKEN/countryTZA/countryCOD/countryRWA"
+    },
+    {
+        "id": "countryLSO",
+        "borderingNations": "countryZAF"
+    },
+    {
+        "id": "countryCMR",
+        "borderingNations": "countryCOG/countryCAF/countryNGA/countryTCD/countryGAB/countryNER/countryGNQ"
+    },
+    {
+        "id": "countryGAB",
+        "borderingNations": "countryCOG/countryCMR/countryGNQ"
+    },
+    {
+        "id": "countryNER",
+        "borderingNations": "countryLBY/countryMLI/countryNGA/countryBEN/countryTCD/countryDZA/countryCMR/countryBFA"
+    },
+    {
+        "id": "countryBFA",
+        "borderingNations": "countryCIV/countryMLI/countryBEN/countryNER/countryTGO/countryGHA"
+    },
+    {
+        "id": "countryTGO",
+        "borderingNations": "countryBEN/countryBFA/countryGHA"
+    },
+    {
+        "id": "countryGHA",
+        "borderingNations": "countryCIV/countryBFA/countryTGO"
+    },
+    {
+        "id": "countryGNB",
+        "borderingNations": "countryGIN/countrySEN"
+    },
+    {
+        "id": "countryEGY",
+        "borderingNations": "countryISR/countryLBY/countrySDN"
+    },
+    {
+        "id": "countryMRT",
+        "borderingNations": "countryESH/countryMLI/countrySEN/countryDZA"
+    },
+    {
+        "id": "countryGNQ",
+        "borderingNations": "countryCMR/countryGAB"
+    },
+    {
+        "id": "countryGMB",
+        "borderingNations": "countrySEN"
+    },
+    {
+        "id": "countryMDG",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryFRA",
+        "borderingNations": "countrySUR/countryBRA/countryDEU/countryLUX/countryBEL/countryESP/countryITA/countryCHE"
+    },
+    {
+        "id": "countryUKR",
+        "borderingNations": "countryBLR/countryRUS/countryROU/countryHUN/countrySVK/countryPOL/countryMDA"
+    },
+    {
+        "id": "countryBLR",
+        "borderingNations": "countryUKR/countryLTU/countryRUS/countryLVA/countryPOL"
+    },
+    {
+        "id": "countryLTU",
+        "borderingNations": "countryBLR/countryRUS/countryLVA/countryPOL"
+    },
+    {
+        "id": "countryRUS",
+        "borderingNations": "countryCHN/countryPRK/countryKAZ/countryMNG/countryGEO/countryAZE/countryUKR/countryBLR/countryLTU/countryEST/countryLVA/countryNOR/countryFIN/countryPOL"
+    },
+    {
+        "id": "countryCZE",
+        "borderingNations": "countryDEU/countrySVK/countryPOL/countryAUT"
+    },
+    {
+        "id": "countryDEU",
+        "borderingNations": "countryFRA/countryCZE/countryLUX/countryBEL/countryDNK/countryPOL/countryAUT/countryCHE/countryNLD"
+    },
+    {
+        "id": "countryEST",
+        "borderingNations": "countryRUS/countryLVA"
+    },
+    {
+        "id": "countryLVA",
+        "borderingNations": "countryBLR/countryLTU/countryRUS/countryEST"
+    },
+    {
+        "id": "countryNOR",
+        "borderingNations": "countryRUS/countrySWE/countryFIN"
+    },
+    {
+        "id": "countrySWE",
+        "borderingNations": "countryNOR/countryFIN"
+    },
+    {
+        "id": "countryFIN",
+        "borderingNations": "countryRUS/countryNOR/countrySWE"
+    },
+    {
+        "id": "countryLUX",
+        "borderingNations": "countryFRA/countryDEU/countryBEL"
+    },
+    {
+        "id": "countryBEL",
+        "borderingNations": "countryFRA/countryDEU/countryLUX/countryNLD"
+    },
+    {
+        "id": "countryMKD",
+        "borderingNations": "countryALB/country-99/countryGRC/countrySRB/countryBGR"
+    },
+    {
+        "id": "countryALB",
+        "borderingNations": "countryMKD/country-99/countryGRC/countryMNE"
+    },
+    {
+        "id": "country-99",
+        "borderingNations": "countryMKD/countryALB/countrySRB/countryMNE"
+    },
+    {
+        "id": "countryESP",
+        "borderingNations": "countryFRA/countryPRT"
+    },
+    {
+        "id": "countryDNK",
+        "borderingNations": "countryDEU"
+    },
+    {
+        "id": "countryROU",
+        "borderingNations": "countryUKR/countryHUN/countrySRB/countryBGR/countryMDA"
+    },
+    {
+        "id": "countryHUN",
+        "borderingNations": "countryUKR/countryROU/countrySVK/countryAUT/countrySRB/countryHRV/countrySVN"
+    },
+    {
+        "id": "countrySVK",
+        "borderingNations": "countryUKR/countryCZE/countryHUN/countryPOL/countryAUT"
+    },
+    {
+        "id": "countryPOL",
+        "borderingNations": "countryUKR/countryBLR/countryLTU/countryRUS/countryCZE/countryDEU/countrySVK"
+    },
+    {
+        "id": "countryIRL",
+        "borderingNations": "countryGBR"
+    },
+    {
+        "id": "countryGBR",
+        "borderingNations": "countryIRL"
+    },
+    {
+        "id": "countryGRC",
+        "borderingNations": "countryTUR/countryMKD/countryALB/countryBGR"
+    },
+    {
+        "id": "countryAUT",
+        "borderingNations": "countryCZE/countryDEU/countryHUN/countrySVK/countryITA/countryCHE/countrySVN"
+    },
+    {
+        "id": "countryITA",
+        "borderingNations": "countryFRA/countryAUT/countryCHE/countrySVN"
+    },
+    {
+        "id": "countryCHE",
+        "borderingNations": "countryFRA/countryDEU/countryAUT/countryITA"
+    },
+    {
+        "id": "countryNLD",
+        "borderingNations": "countryDEU/countryBEL"
+    },
+    {
+        "id": "countrySRB",
+        "borderingNations": "countryMKD/country-99/countryROU/countryHUN/countryHRV/countryBGR/countryMNE/countryBIH"
+    },
+    {
+        "id": "countryHRV",
+        "borderingNations": "countryHUN/countrySRB/countrySVN/countryMNE/countryBIH"
+    },
+    {
+        "id": "countrySVN",
+        "borderingNations": "countryHUN/countryAUT/countryITA/countryHRV"
+    },
+    {
+        "id": "countryBGR",
+        "borderingNations": "countryTUR/countryMKD/countryROU/countryGRC/countrySRB"
+    },
+    {
+        "id": "countryMNE",
+        "borderingNations": "countryALB/country-99/countrySRB/countryHRV/countryBIH"
+    },
+    {
+        "id": "countryBIH",
+        "borderingNations": "countrySRB/countryHRV/countryMNE"
+    },
+    {
+        "id": "countryPRT",
+        "borderingNations": "countryESP"
+    },
+    {
+        "id": "countryMDA",
+        "borderingNations": "countryUKR/countryROU"
+    },
+    {
+        "id": "countryISL",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryPNG",
+        "borderingNations": "countryIDN"
+    },
+    {
+        "id": "countryAUS",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryFJI",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryNZL",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryNCL",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countrySLB",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryVUT",
+        "borderingNations": "None"
+    },
+    {
+        "id": "countryUSA",
+        "borderingNations": "countryMEX/countryCAN"
+    },
+    {
+        "id": "countryCAN",
+        "borderingNations": "countryUSA"
+    }
+]
